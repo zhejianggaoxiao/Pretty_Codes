@@ -15,6 +15,17 @@ This is a repository of some pretty codes.
 
 
 
+
+### 使用
+
+```shell
+chmod +x install_nc4.sh
+./install_nc4
+```
+
+
+
+
 ### 特点
 
 - 可以自由选择安装哪些软件包（目前只有两种）
