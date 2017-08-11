@@ -585,9 +585,10 @@ then
   # clean
   #rm -r ${ZLBD}
 
+  sleep 2
+
 fi
 
-sleep 2
 
 
 ##############################################
@@ -724,10 +725,11 @@ then
   # clean
   #rm -r ${HDFD}
 
+  sleep 2
+
 fi
 
 
-sleep 2
 
 ##############################################
 #           Netcdf-c install                 #
@@ -864,10 +866,10 @@ then
   # clean
   #rm -r ${NCCD}
 
+  sleep 2
 
 fi
 
-sleep 2
 
 ##############################################
 #        Netcdf-fortran install              #
@@ -1003,9 +1005,10 @@ then
   # clean
   #rm -r ${NCFD}
 
+  sleep 2
+
 fi
 
-sleep 2
 
 ##############################################
 #             MPICH  Install                 #
@@ -1146,9 +1149,10 @@ then
   # clean
   #rm -r ${MPID}
 
+  sleep 2
+
 fi
 
-sleep 2
 
 ##############################################
 #            Final Check                     #
