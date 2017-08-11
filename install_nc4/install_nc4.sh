@@ -32,7 +32,8 @@ done
 timeout=5
 target=www.baidu.com
 
-if [ `which curl` = NULL ]
+which curl > /dev/null 2>&1
+if [ ! $? -eq 0  ]
 then
   sudo apt-get install curl
   clear
@@ -47,6 +48,7 @@ else
   NetWork=1  # network fail
 fi
 
+exit 
 ##############################################
 #        User Defined Installatuion          #
 ##############################################
@@ -143,7 +145,7 @@ echo "    * You can specify the directory where you want to install."
 echo
 echo -e "      \033[31mIn this shell script, You can't install these packages with "
 echo -e "      SuperUser, which means You can't specfy the path out of "
-echo -e "      /home/$USER/. It's very import.\033[0m"
+echo -e "      /home/$USER/. It's very important.\033[0m"
 echo
 echo -n "      By default, it will be installed in: "
 echo -e "\033[33m $DefDir\033[0m"
@@ -166,7 +168,7 @@ then
 else
   if [ -d $UseDir ]
   then
-    echo 
+    echo
     echo -n "    The library will be installed in: "
     echo -e "\033[32m$UseDir\033[0m"
     InsDir=$UseDir
@@ -180,7 +182,7 @@ else
       echo -e "    Please mkdir first.\033[0m"
       exit 1
     fi
-    echo 
+    echo
     echo -n "    The library will be installed in: "
     echo -e "\033[32m$UseDir\033[0m"
     InsDir=$UseDir
@@ -233,7 +235,7 @@ sleep 1
 echo
 echo
 echo -e "  \033[36mChecking the Intel Compiler......\033[0m"
-echo 
+echo
 echo -n "    Where is the icc: "
 which icc
 echo -n "    Where is the ifort: "
@@ -246,10 +248,10 @@ then
   echo -e "    You know actually"
   echo -e "    You have to install the Intel Compiler first"
   echo -e "    So, Prepare well before running this shell script\033[0m"
-  echo 
+  echo
   exit 1
 else
-  echo 
+  echo
   echo -e "    \033[32mIntel Compiler has been installed.\033[0m"
   echo
 fi
@@ -484,7 +486,7 @@ then
 
   # installing
   ZDIR=${InsDir}/zlib
-  
+
   if [ ! -d ${ZDIR} ]
   then
     mkdir ${ZDIR}
@@ -757,13 +759,16 @@ then
     fi
   done
 
+  # add LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${H5DIR}/lib
+
   # installing
   NCDIR=${InsDir}/netcdfc
 
   if [ ! -d ${NCDIR} ]
   then
     mkdir ${NCDIR}
-    CPPFLAGS=-I${H5DIR}/include LDFLAGS=-L${H5DIR}/lib  ./configure  --prefix=${NCDIR} --enable-netcdf-4 --enable-largefile --disable-dap
+    CPPFLAGS="-I${H5DIR}/include -I${ZDIR}/include" LDFLAGS="-L${H5DIR}/lib -L${ZDIR}/lib"  ./configure  --prefix=${NCDIR} --enable-netcdf-4 --enable-largefile --disable-dap
     if [ $? -ne 0 ]
     then
       echo
@@ -791,7 +796,7 @@ then
   else
     if [ `ls ${NCDIR}|wc -l` -eq 0 ]
     then
-      CPPFLAGS=-I${H5DIR}/include LDFLAGS=-L${H5DIR}/lib  ./configure  --prefix=${NCDIR} --enable-netcdf-4 --enable-largefile --disable-dap
+      CPPFLAGS="-I${H5DIR}/include -I${ZDIR}/include" LDFLAGS="-L${H5DIR}/lib -L${ZDIR}/lib"  ./configure  --prefix=${NCDIR} --enable-netcdf-4 --enable-largefile --disable-dap
       if [ $? -ne 0 ]
       then
         echo
