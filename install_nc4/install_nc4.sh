@@ -3,7 +3,7 @@
 # Author: Gaox
 # Mail: gaox1993@mail.ustc.edu.cn
 # Created Time: 2017年08月08日 星期二 20时14分29秒
-# Version: 6.0
+# Version: 7.0
 #########################################################################
 #!/bin/bash
 
@@ -36,6 +36,14 @@ which curl > /dev/null 2>&1
 if [ ! $? -eq 0  ]
 then
   sudo apt-get install curl
+  if [ $? -ne 0 ]
+  then
+    echo "\033[31m* Error notice:"
+    echo "    curl couldn't be installed. Please install it manually.\033[0m"
+    echo
+    exit 1
+  fi
+
   clear
 fi
 
@@ -206,6 +214,13 @@ then
   echo
   echo "  Installing m4"
   sudo apt-get -y install m4
+  if [ $? -ne 0 ]
+  then
+    echo "\033[31m* Error notice:"
+    echo "    m4 couldn't be installed. Please install it manually.\033[0m"
+    echo
+    exit 1
+  fi
   echo
 fi
 
@@ -217,6 +232,13 @@ then
   echo
   echo "  Installing wget"
   sudo apt-get -y install wget
+  if [ $? -ne 0 ]
+  then
+    echo "\033[31m* Error notice:"
+    echo "    wget couldn't be installed. Please install it manually.\033[0m"
+    echo
+    exit 1
+  fi
   echo
 fi
 
