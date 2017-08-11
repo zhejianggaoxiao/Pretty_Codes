@@ -136,15 +136,21 @@ echo
 echo -e "    * All the following packages are compiled by the\033[33m Intel Compiler\033[0m."
 echo "      So you must install Intel Compiler before this installation."
 
+echo
+echo -e "    * Make sure You have \033[33mincluded\033[0m the following packages in the current directory:"
+echo
+
 if [ $OPT1 -ne 2 -a $OPT2 -eq 2 ]
 then
-  echo
-  echo -e "    * Make sure You have \033[33mincluded\033[0m the following packages in the current directory:"
-  echo
   echo "       - zlib*.tar.gz"
   echo "       - hdf5*.tar.gz"
   echo "       - netcdf-c*.tar.gz"
   echo "       - netcdf-fortran*.tar.gz"
+fi
+
+if [ $OPT1 -ne 1 -a $OPT2 -eq 2 ]
+then
+  echo "       - mpich*.tar.gz"
 fi
 
 echo
@@ -1196,6 +1202,8 @@ fi
 
 echo
 echo -e "  \033[36mSome Cleaning Work\033[0m"
+
+# uncompressed packages
 echo
 echo -n "    Do you want to delete the uncompressed packages (Not include the *.tar.gz) ? [y/n]"
 
@@ -1217,6 +1225,26 @@ case $OPT3 in
 esac
 
 
+# source  packages
+echo
+echo -n "    Do you want to delete the source packages (the *.tar.gz) ? [y/n]"
+
+read OPT4
+
+case $OPT4 in
+  y)echo
+    echo -e "    You will \033[31mdelete\033[0m the source packages."
+    rm -r $ZLIB1 $HDF1 $NCC1 $NCF1  $MPI1
+    ;;
+  n)echo
+    echo -e "    You will \033[32mreserve\033[0m the source packages."
+    ;;
+  *)echo
+    echo "    I dno't know why you don't enter the proper options."
+    echo -e "    But by default, it will \033[31mdelete\033[0m these source packages."
+    rm -r $ZLIB1 $HDF1 $NCC1 $NCF1  $MPI1
+    ;;
+esac
 
 echo
 echo -e "  \033[36mIn addition, there are some paths you may need:\033[0m"
