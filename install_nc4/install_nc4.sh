@@ -48,7 +48,6 @@ else
   NetWork=1  # network fail
 fi
 
-exit 
 ##############################################
 #        User Defined Installatuion          #
 ##############################################
