@@ -38,8 +38,8 @@ then
   sudo apt-get install curl
   if [ $? -ne 0 ]
   then
-    echo "\033[31m* Error notice:"
-    echo "    curl couldn't be installed. Please install it manually.\033[0m"
+    echo -e "\033[31m* Error notice:"
+    echo -e "    curl couldn't be installed. Please install it manually.\033[0m"
     echo
     exit 1
   fi
@@ -222,8 +222,8 @@ then
   sudo apt-get -y install m4
   if [ $? -ne 0 ]
   then
-    echo "\033[31m* Error notice:"
-    echo "    m4 couldn't be installed. Please install it manually.\033[0m"
+    echo -e "\033[31m* Error notice:"
+    echo -e "    m4 couldn't be installed. Please install it manually.\033[0m"
     echo
     exit 1
   fi
@@ -240,8 +240,8 @@ then
   sudo apt-get -y install wget
   if [ $? -ne 0 ]
   then
-    echo "\033[31m* Error notice:"
-    echo "    wget couldn't be installed. Please install it manually.\033[0m"
+    echo -e "\033[31m* Error notice:"
+    echo -e "    wget couldn't be installed. Please install it manually.\033[0m"
     echo
     exit 1
   fi
