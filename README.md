@@ -3,7 +3,9 @@ This is a repository of some pretty codes.
 
 
 
-## 简介
+## 20170811: install_nc4.sh
+
+### 简介
 
 这个shell脚本可以交互实现Netcdf4和MPICH的安装。
 
@@ -11,7 +13,7 @@ This is a repository of some pretty codes.
 
 
 
-## 特点
+### 特点
 
 - 可以自由选择安装哪些软件包（目前只有两种）
 - 可以自定义安装路径（目前只能实现在`/home/user/`目录下的任意安装）
@@ -27,7 +29,7 @@ This is a repository of some pretty codes.
 
 
 
-## 更新
+### 更新
 
 - 2017-08-11：install_nc4.sh
   - netcdf4和mpich的安装实现
@@ -36,8 +38,8 @@ This is a repository of some pretty codes.
 
 
 
-## 反馈
+### 反馈
 
-目前这个属于测试版，初衷仅供课题组内部使用。如果有问题，可以邮件反馈。
+目前这个属于测试版，初衷仅供课题组内部使用。如果有问题，可以邮件反馈或是直接`issues`。
 
 **邮箱**：gaox1993@mail.ustc.edu.cn
