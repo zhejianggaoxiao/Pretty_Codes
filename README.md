@@ -9,7 +9,7 @@ This is a repository of some pretty codes.
 
 这个shell脚本可以交互实现Netcdf4和MPICH的安装。
 
-**目前只在两台电脑上测试过，如果有问题，可以在`github`上直接`issues`**。
+**目前只在3台电脑上测试过，如果有问题，可以在`github`上直接`issues`**。
 
 
 
