@@ -57,7 +57,7 @@ else
 fi
 
 ##############################################
-#        User Defined Installatuion          #
+#        User Defined Installation          #
 ##############################################
 
 echo
@@ -469,7 +469,7 @@ then
 
 
   # find the zlib package
-  if [ -n $ZLIB1 ]
+  if [ -f $ZLIB1 ]
   then
     echo
     echo "    Find zlib install package"
@@ -606,7 +606,7 @@ then
   HDF1=`ls -d hdf5*`
 
   # find the hdf5 package
-  if [ -n $HDF1 ]
+  if [ -f $HDF1 ]
   then
     echo
     echo "    Find hdf5 install package"
@@ -746,7 +746,7 @@ then
   NCC1=`ls -d netcdf-[!f]*`
 
   # find the nc package
-  if [ -n $NCC1 ]
+  if [ -f $NCC1 ]
   then
     echo
     echo "    Find Netcdf-c install package"
@@ -888,7 +888,7 @@ then
 
 
   # find the nf package
-  if [ -n $NCF1 ]
+  if [ -f $NCF1 ]
   then
     echo
     echo "    Find Netcdf-fortran install package"
@@ -1027,7 +1027,7 @@ then
 
 
   # find the mpich package
-  if [ -n $MPI1 ]
+  if [ -f $MPI1 ]
   then
     echo
     echo "    Find mpich install package"
