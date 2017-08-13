@@ -9,7 +9,7 @@ This is a repository of some pretty codes.
 ### 使用
 - 建议在后台开启
   ```shell
-  nohup 。/check_google.sh &
+  nohup ./check_google.sh &
   ```
 - 程序中由于设置的是死循环（`while true`），因此只要不关机或是直接关闭运行终端（以exit方式退出可以），程序会一直运行
 - 希望开机自启动，可以参考设置[Here](http://blog.csdn.net/marujunyy/article/details/8466255)
