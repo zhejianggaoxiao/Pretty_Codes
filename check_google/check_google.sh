@@ -41,10 +41,10 @@ do
     NetWork=1  # network fail
     #notify-send ["Googlr Network"] "Google fail"
     zenity --error --timeout=30 --text "Google Failed."
-  #else
-    #notify-send ["Googlr Network"] "Google ok"
+  else
+    notify-send ["Googlr Network"] "Google ok"
     #zenity --error --timeout=30 --text "Google OK."
 
   fi
-  sleep 100
+  sleep 15
 done
