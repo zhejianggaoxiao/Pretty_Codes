@@ -126,8 +126,8 @@ sleep 1
 #        Specify the Install routine         #
 ##############################################
 
-USER=`whoami`
-DefDir=/home/$USER/netcdf
+USER=`echo ~`
+DefDir=$USER/netcdf
 
 echo
 echo
@@ -158,7 +158,7 @@ echo "    * You can specify the directory where you want to install."
 echo
 echo -e "      \033[31mIn this shell script, You can't install these packages with "
 echo -e "      SuperUser, which means You can't specfy the path out of "
-echo -e "      /home/$USER/. It's very important.\033[0m"
+echo -e "      $USER/. It's very important.\033[0m"
 echo
 echo -n "      By default, it will be installed in: "
 echo -e "\033[33m $DefDir\033[0m"
@@ -931,6 +931,8 @@ then
 
   # installing
   NFDIR=${InsDir}/netcdff
+
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${NCDIR}/lib
 
   if [ ! -d ${NFDIR} ]
   then
